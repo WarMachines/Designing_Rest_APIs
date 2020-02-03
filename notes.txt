@@ -1,0 +1,88 @@
+1. who needs your API
+    a. Why good API design is important
+        API design is hard, its a game of trade offs
+        We want to be delibrate about its
+            a. Decide what functionality we want to expose
+            b. how to expose it.
+            c. Figure out the best way to expose it
+            d. Test and validate your assumption
+
+    b. Affordances
+        a.   It is something which allows you to do something or achieve something
+    
+    #why we need API's?
+
+    c. Three approches to for adding API's 
+        1. Bolt-On Strategy
+            About: In this approach, there is already a system exist and we are developing API to support additional functionality requirement of the system
+            Benefits: Bruteforce approach, but fastest way to get a value, it takes advantages of existing codebase
+            Drawbacks: The existing problem in the system will ultimately leak to the API, which is hard to control or almost impossible
+        
+        2. Greenfield Strategy
+            About: This Strategy is for the projects we are working from the scratch(new system), also know as mobile first
+            Benefits: Can adopt latest technologies, motivates people to learn new things
+            Drawbacks: Required major upfront investment before showing any values
+        
+        3. Facade Strategy:
+            About: This Strategy exist when we are upgrading the current system into new technologies piece by piece
+            Benefits: Keep system working and also upgrades the system to latest technologies
+            Drawbacks: Can have different mindset and may be hard to replicate the exact behaviour.
+    
+    d. Modeling the API:
+        1. One the most important aspect of designing good rest API design
+        2. Don't worry about the tools choose what works best for your project.
+        3. Have a consistent process throughout the development process and later on.
+        4. Document everything(why this model, why the endpoint, why this...) so anyone can understand the logic/reason/behaviour of the API, write every information or requirement that needs to change, write it down otherwise you will forget.
+        5. Identify the participants
+
+2. Rest API Contraints: The constraint are design pricipal one should follow, these are not hard rules
+    a. Rest API should be design for client server setup
+    b. API should be stateless, mean each request can act on its own and have no dependency on other request.
+        1. Inherent to the design of internet
+        2. Stability 
+        3. Scalability
+        4. Reliable and fault tolerant
+    c. Cacheable
+        1. It is useful for idempotent request like GET,PUT,DELETE
+    d. Layered System
+        1. It gives us flexibility to make system more agile, available and improve with time
+    e. Code on Demand
+        1. Allow flexibility, scalability, extensibility
+    f. Uniform interface
+        1. Identification of resource
+        2. Manipulate through these representation or interface
+        3. Self descriptive messages
+
+3. API design pattern
+    a. Authentication and Authorization (Ways to achieve)
+        1. API Keys (Can be cached as it will passed as either in url or header)
+        2. Create your own AUTH (Not good, as its untested, required developer to learn it as its not universal)
+        3. OAuth (Reliable, globally accepted mostly)(Complicated and not easy to implement)
+    b. Versioning (Hottly debated Issues)
+        1. Via url
+            clear and explicit
+            Nothing is lost when copy and paste
+        2. Via Accept Header
+            content negotiation (xml/json)(media type)(media type versioning)
+                its hard to do not becasue it hard to implement but its going to create confusing and loose focus 
+    c. Content Type and Media Type
+        1. Collection+json
+        2. HAL Hypertext Application Language
+        3. ION Hypermedia Type
+    d. Hypermedia 
+        1. Return back the URL(Which represents more url and content based on the context we are in)
+    e. Http Headers:
+        1. Mechanism allow to have different version of a content (document) at a single endpoint (Just like API versions)
+        2. Caching
+            a. ETag: client makes a request, server respond with result and an Etag, next request makes the head request, server send an Etag which will be same if data is not changed
+                Client understand that if Etag is same, request is completed, If Data is change then client makes actual request for data
+        
+
+
+
+
+        
+
+
+    
+
